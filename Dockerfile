@@ -27,8 +27,9 @@ RUN apt-get update \
     && ls -al /opt/oracle \
     && mkdir -p /opt/oracle/network \
     && ln -snf /etc/oracle /opt/oracle/network/admin \
-    && apt-get clean && rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
+    && apt-get clean && rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+    && sh -c "echo /opt/oracle/instantclient_12_2 > /etc/ld.so.conf.d/oracle-instantclient.conf" \
+    && ldconfig
 
 # Install Python 3 packages
 # Remove pyqt and qt pulled in for matplotlib since we're only ever going to
