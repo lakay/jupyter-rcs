@@ -6,7 +6,7 @@ LABEL maintainer="Kay Fricke <kay.fricke@sbb.ch>"
 
 # Environment
 ENV LANG=en_US.utf8
-ENV ORACLE_HOME=/usr/lib/oracle/12.1/client64
+ENV ORACLE_HOME=/usr/lib/oracle/12.2/client64
 ENV PATH=$PATH:$ORACLE_HOME/bin
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME/lib
 
