@@ -70,7 +70,7 @@ RUN conda install --quiet --yes \
 	'pytest==3.5*'  && \
     conda install -c conda-forge jupyter_contrib_nbextensions && \
     conda remove --quiet --yes --force qt pyqt && \
-    conda clean -tipsy \
+    conda clean -tipsy 
 
 RUN pip install 'splunk-sdk==1.6.3' \
 	'pyreadline==2.1' \
@@ -89,7 +89,7 @@ RUN pip install 'splunk-sdk==1.6.3' \
 	'jupyter-nbextensions-configurator==0.4.0' \
 	'macholib==1.9' \
 	'pyreadline==2.1' \
-	'cx-Oracle==6.3.1' \
+	'cx-Oracle==6.3.1' 
  
     #Activate Notebook Contrib Extenstions
  RUN jupyter contrib nbextension install --user  && \
