@@ -1,4 +1,4 @@
-![docker pulls](https://img.shields.io/docker/pulls/jupyter/datascience-notebook.svg) ![docker stars](https://img.shields.io/docker/stars/jupyter/datascience-notebook.svg) [![](https://images.microbadger.com/badges/image/jupyter/datascience-notebook.svg)](https://microbadger.com/images/jupyter/datascience-notebook "jupyter/datascience-notebook image metadata")
+![docker pulls](https://img.shields.io/docker/pulls/rawshark/jupyter-rcs.svg) ![docker stars](https://img.shields.io/docker/stars/rawshark/jupyter-rcs.svg) [![](https://images.microbadger.com/badges/image/rawshark/jupyter-rcs.svg)](https://microbadger.com/images/rawshark/jupyter-rcs "rawshark/jupyter-rcs image metadata")
 
 # Jupyter Notebook Data Science Stack
 
