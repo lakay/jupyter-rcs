@@ -9,6 +9,7 @@ ENV LANG=en_US.utf8
 ENV ORACLE_HOME=/usr/lib/oracle/12.2/client64
 ENV PATH=$PATH:$ORACLE_HOME/bin
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME/lib
+ENV PYTHONPATH=$PYTHONPATH:/home/jovyan/work/rcs-autostabi/modules:/home/jovyan/work/rcs-autostabi/stabi/modules
 
 ADD oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64.rpm /tmp/
 ADD oracle-instantclient12.2-sqlplus-12.2.0.1.0-1.x86_64.rpm /tmp/
