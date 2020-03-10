@@ -101,8 +101,7 @@ RUN conda install --quiet --yes \
 	'webencodings==0.5.*' \
 	'Werkzeug==0.16.*' \
 	'XlsxWriter==1.2.*' \
-	'xmltodict==0.12.*' \
-	&& \
+	'xmltodict==0.12.*' && \
     conda install -c conda-forge jupyter_contrib_nbextensions && \
     conda remove --quiet --yes --force qt pyqt && \
     conda clean -tipsy 
