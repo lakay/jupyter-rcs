@@ -38,25 +38,20 @@ RUN apt-get update \
 # Remove pyqt and qt pulled in for matplotlib since we're only ever going to
 # use notebook-friendly backends in these images
 RUN conda install --quiet --yes \
-	'colorama==*' \
 	'datacompy==0.6.*' \
 	'docutils==0.14' \
 	'feather-format==0.4.*' \
-	'hypothesis==4.55.*' \
 	'json5==0.8.*' \
 	'junit-xml==1.8' \
 	'lxml==4.4.*' \
 	'missingno==0.4.*' \
-	'nbformat==4.4.*' \
 	'networkx==*' \
-	'paramiko==2.4.1' \
 	'pefile==2017.11.5' \
 	'pytest==*' \
 	'SQLAlchemy==1.3.*' \
 	'tox==3.14.*' \
 	'tqdm==4.23.4' \
-	'pytest==3.5*'  \
-	'urllib3==1.25.*' \
+	'pytest==*'  \
 	'xmltodict==0.12.*' && \
     conda install -c conda-forge jupyter_contrib_nbextensions && \
     conda remove --quiet --yes --force qt pyqt && \
@@ -64,17 +59,21 @@ RUN conda install --quiet --yes \
  
 RUN pip install 'splunk-sdk==1.6.3' \
 	'cx-Oracle==7.2.*' \
+	'colorama==*' \
 	'datefinder==0.7.*' \
 	'graphviz==0.13.*' \
 	'grafanalib==0.5.*' \
+	'hypothesis' \
 	'jsonify==0.5' \
 	'jmxquery==0.5.*' \
 	'jarmanifest==1.0.*' \
 	'javatools==1.3' \
 	'nbparameterise==0.3*' \
 	'nbopen==0.6*' \
+	'nbformat==4.4.*' \
 	'prometheus-client==0.7.*' \
 	'prometheus-http-client==1.0.*' \
+	'paramiko==*' \
 	'jira-python==0.2.*' 
 
 #Activate Notebook Contrib Extenstions
