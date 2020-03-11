@@ -39,29 +39,20 @@ RUN apt-get update \
 # use notebook-friendly backends in these images
 RUN conda install --quiet --yes \
 	'colorama==0.4.*' \
-	'cx-Oracle==7.2.*' \
 	'datacompy==0.6.*' \
 	'datashader==0.8.*' \
 	'datashape==0.5.*' \
-	'datefinder==0.7.*' \
 	'dateparser==0.7.*' \
 	'defusedxml==0.6.*' \
 	'docutils==0.14' \
 	'feather-format==0.4.*' \
 	'GitPython==3.0.*' \
-	'grafanalib==0.5.*' \
-	'graphviz==0.13.*' \
 	'hypothesis==4.55.*' \
 	'idna==2.6' \
 	'imagesize==1.0.0' \
-	'jarmanifest==1.0.*' \
-	'javatools==1.3' \
 	'jira==2.0.*' \
-	'jira-python==0.2.*' \
 	'jmespath==0.9.3' \
-	'jmxquery==0.5.*' \
 	'json5==0.8.*' \
-	'jsonify==0.5' \
 	'jsonschema==3.1.*' \
 	'joypy==0.2.*' \
 	'junit-xml==1.8' \
@@ -74,14 +65,10 @@ RUN conda install --quiet --yes \
 	'nbconvert==5.6.*' \
 	'nbdime==1.*' \
 	'nbformat==4.4.*' \
-	'nbopen==0.6*' \
-	'nbparameterise==0.3*' \
 	'networkx==2.4*' \
 	'papermill==1.2.*' \
 	'paramiko==2.4.1' \
 	'pefile==2017.11.5' \
-	'prometheus-client==0.7.*' \
-	'prometheus-http-client==1.0.*' \
 	'pyflakes==1.6.0' \
 	'pytest==3.5.1' \
 	'python-dateutil==2.8*' \
@@ -106,8 +93,23 @@ RUN conda install --quiet --yes \
     conda remove --quiet --yes --force qt pyqt && \
     conda clean -tipsy 
  
-    #Activate Notebook Contrib Extenstions
- RUN jupyter contrib nbextension install --user  && \
+RUN pip install 'splunk-sdk==1.6.3' \
+	'cx-Oracle==7.2.*' \
+	'datefinder==0.7.*' \
+	'graphviz==0.13.*' \
+	'grafanalib==0.5.*' \
+	'jsonify==0.5' \
+	'jmxquery==0.5.*' \
+	'jarmanifest==1.0.*' \
+	'javatools==1.3' \
+	'nbparameterise==0.3*' \
+	'nbopen==0.6*' \
+	'prometheus-client==0.7.*' \
+	'prometheus-http-client==1.0.*' \
+	'jira-python==0.2.*' 
+
+#Activate Notebook Contrib Extenstions
+RUN jupyter contrib nbextension install --user  && \
     npm cache clean --force && \
     rm -rf $CONDA_DIR/share/jupyter/lab/staging && \
     rm -rf /home/$NB_USER/.cache/yarn && \
