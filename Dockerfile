@@ -63,7 +63,7 @@ RUN pip install 'splunk-sdk==1.6.3' \
 	'prometheus-client==0.7.*' \
 	'prometheus-http-client==1.0.*' \
 	'paramiko' \
-	'xmltodict==*' \
+	'xmltodict' \
 	'feather-format' \
 	'networkx' \
 	'jira-python==0.2.*' 
