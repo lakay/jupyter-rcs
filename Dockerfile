@@ -42,7 +42,7 @@ RUN conda install --quiet --yes \
 	'cx-Oracle==7.2.*' \
 	'datacompy==0.6.*' \
 	'datashader==0.8.*' \
-	'datashape==0.5.*'
+	'datashape==0.5.*' \
 	'datefinder==0.7.*' \
 	'dateparser==0.7.*' \
 	'defusedxml==0.6.*' \
