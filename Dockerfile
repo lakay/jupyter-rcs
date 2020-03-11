@@ -58,7 +58,7 @@ RUN pip install 'splunk-sdk==1.6.3' \
 	'jarmanifest==1.0.*' \
 	'javatools==1.3' \
 	'junit-xml' \
-	'nbopen==0.6*' \
+	'nbopen' \
 	'nbformat==4.4.*' \
 	'prometheus-client==0.7.*' \
 	'prometheus-http-client==1.0.*' \
