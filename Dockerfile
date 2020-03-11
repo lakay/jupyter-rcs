@@ -38,56 +38,25 @@ RUN apt-get update \
 # Remove pyqt and qt pulled in for matplotlib since we're only ever going to
 # use notebook-friendly backends in these images
 RUN conda install --quiet --yes \
-	'colorama==0.4.*' \
+	'colorama==*' \
 	'datacompy==0.6.*' \
-	'datashader==0.8.*' \
-	'datashape==0.5.*' \
-	'dateparser==0.7.*' \
-	'defusedxml==0.6.*' \
 	'docutils==0.14' \
 	'feather-format==0.4.*' \
-	'GitPython==3.0.*' \
 	'hypothesis==4.55.*' \
-	'idna==2.6' \
-	'imagesize==1.0.0' \
-	'jira==2.0.*' \
-	'jmespath==0.9.3' \
 	'json5==0.8.*' \
-	'jsonschema==3.1.*' \
-	'joypy==0.2.*' \
 	'junit-xml==1.8' \
 	'lxml==4.4.*' \
-	'mccabe==0.6.1' \
 	'missingno==0.4.*' \
-	'more-itertools==4.1.*' \
-	'mplleaflet==0.0.*' \
-	'mpmath==1.0.0' \
-	'nbconvert==5.6.*' \
-	'nbdime==1.*' \
 	'nbformat==4.4.*' \
-	'networkx==2.4*' \
-	'papermill==1.2.*' \
+	'networkx==*' \
 	'paramiko==2.4.1' \
 	'pefile==2017.11.5' \
-	'pyflakes==1.6.0' \
-	'pytest==3.5.1' \
-	'python-dateutil==2.8*' \
-	'PyYAML==5.1.*' \
-	'smmap2==2.0.3' \
-	'snowballstemmer==1.2.1' \
-	'Sphinx==2.2.*' \
+	'pytest==*' \
 	'SQLAlchemy==1.3.*' \
-	'sphinxcontrib-websupport==1.1.*' \
 	'tox==3.14.*' \
 	'tqdm==4.23.4' \
 	'pytest==3.5*'  \
 	'urllib3==1.25.*' \
-	'voila==0.1.*' \
-	'voila-gridstack==0.0.*' \
-	'wcwidth==0.1.*' \
-	'webencodings==0.5.*' \
-	'Werkzeug==0.16.*' \
-	'XlsxWriter==1.2.*' \
 	'xmltodict==0.12.*' && \
     conda install -c conda-forge jupyter_contrib_nbextensions && \
     conda remove --quiet --yes --force qt pyqt && \
