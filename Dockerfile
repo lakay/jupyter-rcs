@@ -31,7 +31,7 @@ RUN apt-get update \
     && mkdir -p /opt/oracle/network \
     && ln -snf /etc/oracle /opt/oracle/network/admin \
     && apt-get clean && rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && sh -c "echo /opt/oracle/instantclient_12_2 > /etc/ld.so.conf.d/oracle-instantclient.conf" \
+    && sh -c "echo /opt/oracle/lib > /etc/ld.so.conf.d/oracle-instantclient.conf" \
     && ldconfig
 
 # Install Python 3 packages
@@ -48,6 +48,7 @@ RUN conda install --quiet --yes \
  
 RUN pip install 'splunk-sdk==1.6.3' \
 	'cx-Oracle==7.2.*' \
+	'colorama' \
 	'datefinder==0.7.*' \
 	'docutils' \
 	'graphviz==0.13.*' \
@@ -66,7 +67,7 @@ RUN pip install 'splunk-sdk==1.6.3' \
 	'xmltodict' \
 	'feather-format' \
 	'networkx' \
-	'jira-python==0.2.*' 
+	'jira' 
 
 #Activate Notebook Contrib Extenstions
 RUN jupyter contrib nbextension install --user  && \
