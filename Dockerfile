@@ -44,7 +44,6 @@ RUN conda install --quiet --yes \
 	'tox==3.14.*' \
 	'pytest' && \
     conda install -c conda-forge jupyter_contrib_nbextensions && \
-    conda remove --quiet --yes --force qt pyqt && \
     conda clean -tipsy 
  
 RUN pip install 'splunk-sdk==1.6.3' \
