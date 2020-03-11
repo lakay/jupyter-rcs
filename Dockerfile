@@ -39,28 +39,18 @@ RUN apt-get update \
 # use notebook-friendly backends in these images
 RUN conda install --quiet --yes \
 	'datacompy==0.6.*' \
-	'docutils==0.14' \
-	'feather-format==0.4.*' \
-	'json5==0.8.*' \
-	'junit-xml==1.8' \
-	'lxml==4.4.*' \
-	'missingno==0.4.*' \
-	'networkx==*' \
-	'pefile==2017.11.5' \
 	'pytest==*' \
 	'SQLAlchemy==1.3.*' \
 	'tox==3.14.*' \
-	'tqdm==4.23.4' \
-	'pytest==*'  \
-	'xmltodict==0.12.*' && \
+	'pytest' && \
     conda install -c conda-forge jupyter_contrib_nbextensions && \
     conda remove --quiet --yes --force qt pyqt && \
     conda clean -tipsy 
  
 RUN pip install 'splunk-sdk==1.6.3' \
 	'cx-Oracle==7.2.*' \
-	'colorama==*' \
 	'datefinder==0.7.*' \
+	'docutils' \
 	'graphviz==0.13.*' \
 	'grafanalib==0.5.*' \
 	'hypothesis' \
@@ -68,12 +58,17 @@ RUN pip install 'splunk-sdk==1.6.3' \
 	'jmxquery==0.5.*' \
 	'jarmanifest==1.0.*' \
 	'javatools==1.3' \
+	'junit-xml' \
+	'lxml' \
 	'nbparameterise==0.3*' \
 	'nbopen==0.6*' \
 	'nbformat==4.4.*' \
 	'prometheus-client==0.7.*' \
 	'prometheus-http-client==1.0.*' \
 	'paramiko==*' \
+	'xmltodict==*' \
+	'feather-format' \
+	'networkx' \
 	'jira-python==0.2.*' 
 
 #Activate Notebook Contrib Extenstions
