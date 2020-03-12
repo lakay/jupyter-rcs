@@ -34,6 +34,24 @@ RUN apt-get update \
     && sh -c "echo /opt/oracle/lib > /etc/ld.so.conf.d/oracle-instantclient.conf" \
     && ldconfig
 
+# Install OpenJDK-8
+RUN apt-get update && \
+    apt-get install -y openjdk-8-jdk && \
+    apt-get install -y ant && \
+    apt-get clean;
+
+# Fix certificate issues
+RUN apt-get update && \
+    apt-get install ca-certificates-java && \
+    apt-get clean && \
+    update-ca-certificates -f;
+
+# Setup JAVA_HOME -- useful for docker commandline
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+RUN export JAVA_HOME
+
+RUN locale-gen de_CH.UTF-8
+
 # Install Python 3 packages
 # Remove pyqt and qt pulled in for matplotlib since we're only ever going to
 # use notebook-friendly backends in these images
@@ -67,6 +85,7 @@ RUN pip install 'splunk-sdk==1.6.3' \
 	'xmltodict' \
 	'feather-format' \
 	'networkx' \
+	'qgrid' \
 	'jira' 
 
 #Activate Notebook Contrib Extenstions
