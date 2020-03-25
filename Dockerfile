@@ -56,7 +56,8 @@ RUN locale-gen de_CH.UTF-8
 # Install and Setup Eclipse Mat
 ARG MAT_VERSION=1.9.2
 ARG MAT_BUILD_DATE=20200115
-RUN wget -qO- "http://eclipse.mirror.garr.it/mirrors/eclipse//mat/${MAT_VERSION}/rcp/MemoryAnalyzer-${MAT_VERSION}.${MAT_BUILD_DATE}-linux.gtk.x86_64.zip" \
+http://eclipse.mirror.garr.it/eclipse/mat/1.9.2/rcp/MemoryAnalyzer-1.9.2.20200115-linux.gtk.x86_64.zip
+RUN wget -qO- "http://eclipse.mirror.garr.it/eclipse/mat/1.9.2/rcp/MemoryAnalyzer-${MAT_VERSION}.${MAT_BUILD_DATE}-linux.gtk.x86_64.zip" \
     | unzip - 
 RUN chmod +x /mat/MemoryAnalyzer /mat/ParseHeapDump.sh
 RUN apk add --no-cache ttf-dejavu
