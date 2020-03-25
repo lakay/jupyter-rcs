@@ -21,6 +21,7 @@ USER root
 RUN apt-get update \
     && apt-get install -y language-pack-en alien libaio1 \
     && apt-get install -y --no-install-recommends ffmpeg \
+    && apt install -y graphviz \
     && locale-gen en_US \
     && alien -i /tmp/oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64.rpm \
     && alien -i /tmp/oracle-instantclient12.2-sqlplus-12.2.0.1.0-1.x86_64.rpm \
@@ -52,6 +53,15 @@ RUN export JAVA_HOME
 
 RUN locale-gen de_CH.UTF-8
 
+# Install and Setup Eclipse Mat
+ARG MAT_VERSION=1.9.2
+ARG MAT_BUILD_DATE=20200115
+RUN wget -qO- "http://eclipse.mirror.garr.it/mirrors/eclipse//mat/${MAT_VERSION}/rcp/MemoryAnalyzer-${MAT_VERSION}.${MAT_BUILD_DATE}-linux.gtk.x86_64.zip" \
+    | unzip - 
+RUN chmod +x /mat/MemoryAnalyzer /mat/ParseHeapDump.sh
+RUN apk add --no-cache ttf-dejavu
+ENV JAVA_OPTS="-Xmx4096m"
+
 # Install Python 3 packages
 # Remove pyqt and qt pulled in for matplotlib since we're only ever going to
 # use notebook-friendly backends in these images
@@ -62,6 +72,7 @@ RUN conda install --quiet --yes \
 	'tox==3.14.*' \
 	'pytest' && \
     conda install -c conda-forge jupyter_contrib_nbextensions && \
+    conda install -c conda-forge voila && \
     conda clean -tipsy 
  
 RUN pip install 'splunk-sdk==1.6.3' \
@@ -86,10 +97,13 @@ RUN pip install 'splunk-sdk==1.6.3' \
 	'feather-format' \
 	'networkx' \
 	'qgrid' \
-	'jira' 
+	'jira' \
+	'jupyterlab-git'
 
 #Activate Notebook Contrib Extenstions
 RUN jupyter contrib nbextension install --user  && \
+    jupyter labextension install @jupyter-voila/jupyterlab-preview && \
+    jupyter labextension install @jupyterlab/git && \
     npm cache clean --force && \
     rm -rf $CONDA_DIR/share/jupyter/lab/staging && \
     rm -rf /home/$NB_USER/.cache/yarn && \
