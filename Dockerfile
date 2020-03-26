@@ -21,6 +21,7 @@ USER root
 RUN apt-get update \
     && apt-get install -y language-pack-en alien libaio1 \
     && apt-get install -y --no-install-recommends ffmpeg \
+    && apt-get install -y cifs-utils \
     && apt install -y graphviz \
     && locale-gen en_US \
     && alien -i /tmp/oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64.rpm \
@@ -43,7 +44,7 @@ RUN apt-get update && \
 
 # Fix certificate issues
 RUN apt-get update && \
-    apt-get install ca-certificates-java && \
+    apt-get install -y ca-certificates-java && \
     apt-get clean && \
     update-ca-certificates -f;
 
