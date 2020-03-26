@@ -59,7 +59,7 @@ ARG MAT_VERSION=1.9.2
 ARG MAT_BUILD_DATE=20200115
 RUN cd /home/jovyan/work && wget -qO- "http://eclipse.mirror.garr.it/eclipse/mat/1.9.2/rcp/MemoryAnalyzer-${MAT_VERSION}.${MAT_BUILD_DATE}-linux.gtk.x86_64.zip" \
     | jar xvf /dev/stdin 
-RUN chmod +x /home/jovyan/mat/MemoryAnalyzer /home/jovyan/mat/ParseHeapDump.sh
+RUN chmod +x /home/jovyan/work/mat/MemoryAnalyzer /home/jovyan/work/mat/ParseHeapDump.sh
 RUN apt-get update && \
     apt-get install -y ttf-dejavu
 ENV JAVA_OPTS="-Xmx4096m"
